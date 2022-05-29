@@ -1,0 +1,33 @@
+<h1>Reactive-Form FormBuilder</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <label for="firstname">firstname</label>
+    <input type="text" id="firstname" formControlName="firstname">
+    <br>
+    <label for="lastname">lastname</label>
+    <input type="text" id="lastname" formControlName="lastname">
+    <br>
+    <div formGroupName="address">
+        <h2>Address</h2>
+        
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street">
+        
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city">
+        
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state">
+        
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip">
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<h5> {{profileForm.value.firstname}}</h5>
+<h5> {{profileForm.value.lastname}}</h5>
+<h5> {{profileForm.value.address.zip}}</h5>
+<h5> {{profileForm.value.address.state}}</h5>

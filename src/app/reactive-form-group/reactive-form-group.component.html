@@ -1,0 +1,11 @@
+<h1>Reactive Form Group</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+ <label for="firstname">firstname</label>
+ <input type="text" id="firstname" formControlName="firstname"> 
+ <br>
+ <label for="lastname">lastname</label>
+ <input type="text" id="lastname" formControlName="lastname">
+ <br>
+ <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
